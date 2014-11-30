@@ -67,6 +67,7 @@ module.exports = (grunt) ->
                         'slides/**'
                         'bower_components/**'
                         'js/**'
+                        'img/**'
                     ]
                     dest: 'dist/'
                 },{
@@ -75,6 +76,7 @@ module.exports = (grunt) ->
                     dest: 'dist/'
                     filter: 'isFile'
                 }]
+
 
         buildcontrol:
 
@@ -129,6 +131,11 @@ module.exports = (grunt) ->
         ]
 
 
+    grunt.registerTask 'deploy',
+        'Deploy to Github Pages', [
+            'dist'
+            'buildcontrol'
+        ]
 
     # Define default task.
     grunt.registerTask 'default', [
